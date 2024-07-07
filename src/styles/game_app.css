@@ -1,0 +1,162 @@
+body {
+  font-family: 'Feather Bold', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #4CAF50;
+  height: 80px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.header-content img {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content;
+  max-height: fit-content;
+  margin: auto;
+}
+
+.main-content {
+  text-align: center;
+  max-width: 450px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}
+
+#message {
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.button-container {
+  display: flex;
+  justify-content:center;
+  margin: 10px;
+
+}
+
+.image-container {
+  display: block;
+}
+
+.animalImageButton {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: none;
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+}
+.image-cover::after{
+  content: "div";
+  background-image: url("../assets//images/nature.png");
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: none;
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.animalImageButton:hover {
+  background-color: #ffffff00;
+  transform: scale(1.1) rotate(5deg);
+  transition: transform 0.3s ease;
+}
+
+#playButton {
+  width: 80px;
+  height: 80px;
+  background-color: #4CAF50;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+#playButton:hover {
+  transform: scale(1.1);
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+#restartButton {
+  width: 80px;
+  height: 80px;
+  background-color: #e74c3c;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+#restartButton:hover {
+  transform: scale(1.1);
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.button-container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+#returnButton {
+  width: 150px;
+  height: 40px;
+  background-color: #e74c3c;
+  margin-top: 10px;
+}
+
+#returnButton:hover {
+  transform: scale(1.1);
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
