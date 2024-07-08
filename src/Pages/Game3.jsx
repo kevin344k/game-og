@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import FooterMadeBy from "../components/FooterMadeBy";
-import { matchPath, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/game_app.css";
 import { shuffleArray } from "../js/shuffleArray";
 import nature from "../assets/images/nature.png";
@@ -12,19 +12,21 @@ import dataImages from "../js/dataImages";
 export default function Game3() {
   const [playGame, setPlayGame] = useState(false);
   const [resetGame, setResetGame] = useState(false);
-const [textM, setTextM]=useState("Encuentra el par de cartas.")
+  const [textM, setTextM] = useState("");
   let arrFill = dataImages.concat(dataImages);
   const [arrayFill, setArrFill] = useState();
   let arrWorder = shuffleArray(arrFill);
   const [isPair, setIsPair] = useState(false);
   const [coverImage, setImageCover] = useState("");
-let matchAnimal=[]
+  const [disabledButtons, setDisabledButtons] = useState("");
+  let matchAnimal = [];
+  let  [winner,setWinner]=useState(1)
   useEffect(() => {
     setArrFill(arrWorder);
     setResetGame(false);
   }, [resetGame]);
 
-  //const [restart,setRestart]=useState(false)
+
 
   //navegacion depar ir al menu de juegos
   const navigate = useNavigate();
@@ -39,16 +41,15 @@ let matchAnimal=[]
             <button
               key={index}
               name="butAnimal"
-              className={`${coverImage} animalImageButton`} disabled={false}
+              className={`${coverImage} animalImageButton`}
+              disabled={disabledButtons}
               //style={index==clickIndexAnimal?{backgroundImage: `url(${item.rute})`}:{ backgroundImage: `url(${nature})`}}
               style={{ backgroundImage: `url(${item.rute})` }}
               id={index}
               onClick={(e) => {
                 console.log(item.name);
-               
-                handlerClickAnimal(e,item.name,index)
-              
-               
+
+                handlerClickAnimal(e, item.name, index);
               }}
             ></button>
           ))
@@ -56,58 +57,87 @@ let matchAnimal=[]
     }
   }
 
-//function text match
-function textMatch(text) {
- setTimeout(()=>{
-  setTextM(text)
- },5000)
- setTextM("Encuentra el par de cartas.")
+  //function text match
+  function textMatch(text) {
+    setTextM(text);
+  
+  }
+
+const successMatch=(num)=>{
+ 
+  setWinner(winner+num)
+  console.log(winner,"veces ganadas");
+  winnerFunction(winner)
 }
 
-  //reiniciar el juego
+function winnerFunction(winner) {
+  winner==3?textMatch("¡Has encontrado todos los pares! ¡Eres un experto en memoria!"): "";
+}
+
 
   const play = () => {
     setPlayGame(true);
     setImageCover("image-cover");
+    setDisabledButtons(false);
     console.log("play");
   };
-
 
   const clickResetGame = () => {
     setResetGame(true);
     setPlayGame(false);
-
-
+    setDisabledButtons(true);
     setImageCover("");
-   
   };
+  window.onload = () => {
+    setDisabledButtons(true);
+   textMatch("Encuentra el par de cartas.")
+  };
+  const handlerClickAnimal = (e, name, index) => {
+    let idClick = e.target.id;
+    document.getElementById(idClick).classList.toggle("image-cover");
 
+    console.log(name, index);
+    machtPair(name, idClick);
+  };
+  let butAnimalArr = document.getElementsByName("butAnimal");
+  let arrINdexDisabled = [];
 
-const handlerClickAnimal=(e,name,index)=>{
-  let idClick=(e.target.id)
- document.getElementById(idClick).classList.toggle("image-cover")
+  function machtPair(nameA, idClick) {
+    arrINdexDisabled.push(idClick);
+    matchAnimal.push(nameA);
 
- console.log(name,index);
- machtPair(name)
+    if (matchAnimal.length == 2) {
+      if (matchAnimal[0] === matchAnimal[1]) {
+       
+        successMatch(1)
+        setTimeout(() => {
+          butAnimalArr[arrINdexDisabled[0]].style.backgroundImage = "none";
+          butAnimalArr[arrINdexDisabled[1]].style.backgroundImage = "none";
+          butAnimalArr[arrINdexDisabled[0]].disabled = true;
+          butAnimalArr[arrINdexDisabled[1]].disabled = true;
+          textMatch("Encuentra el par de cartas.")
+       
+          arrINdexDisabled = [];
+        
+        }, 1000);
+        textMatch("¡Bien hecho! Encontraste un par.")
+       
+      } else {
+         textMatch("¡Oops! No es un par. Sigue buscando.");
+        setTimeout(() => {
+          butAnimalArr[arrINdexDisabled[0]].classList.add("image-cover");
+          butAnimalArr[arrINdexDisabled[1]].classList.add("image-cover");
+          arrINdexDisabled = [];
+          matchAnimal = [];
+          textMatch("Encuentra el par de cartas.");
+        }, 1000);
 
-}
-
-function machtPair(nameA) {
-  matchAnimal.push(nameA)
-  console.log(matchAnimal)
-  if (matchAnimal.length==2) {
-    console.log("si");
-    if (matchAnimal[0]===matchAnimal[1]) {
-      console.log("son iguales");
-      textMatch("¡Bien hecho! Encontraste un par.")
-    }else{
-      console.log("no lo son ");
-      textMatch("¡Oops! No es un par. Sigue buscando.")
+        
+        
+      }
+     
     }
   }
-
-}
-
 
   return (
     <>
