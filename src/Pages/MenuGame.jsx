@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FooterMadeBy from "../components/FooterMadeBy";
@@ -8,6 +8,7 @@ import "../styles/menu_page_styles.css";
 
 export default function MenuGame() {
   const navigate = useNavigate();
+  const [userActive,setUserActive]=useState("")
 
   const startBut = () => {
     navigate("/");
@@ -21,6 +22,15 @@ export default function MenuGame() {
     navigate("/Game3");
   };
 
+ const user=localStorage.getItem("userName")
+
+
+
+  
+  
+
+
+
   return (
     <>
       <Navbar text={"¡Tu mundo de aprendizaje!"}></Navbar>
@@ -29,7 +39,7 @@ export default function MenuGame() {
         <img src={MenuMini} className="main-image" alt="Main Image" />
         <div className="main-content">
           <div id="mainMessage">
-            <h1>Escoge un juego</h1>
+            <h2>{user } ...escoge un juego</h2>
           </div>
           <div className="buttons ">
             <button id="juegoDeSonidosButton" onClick={game1But}>

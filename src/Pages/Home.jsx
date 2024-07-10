@@ -10,6 +10,8 @@ export default function Home() {
     <Navbar text={"minimentes"}></Navbar>
     <BodyInit></BodyInit>
     <FooterIdioms></FooterIdioms>
+    
+    
   </>
   )
 }

@@ -1,41 +1,9 @@
-body {
-  font-family: 'Feather Bold', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  background-color: #4CAF50;
-  height: 80px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0 20px;
-}
-
-.header-content img {
-  height: 50px;
-  width: 50px;
-  margin-right: 10px;
-}
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+
 }
 
 .main-container {
@@ -46,6 +14,8 @@ main {
   max-width: fit-content;
   max-height: fit-content;
   margin: auto;
+  margin: 30px 0px;
+ overflow: scroll;
 }
 
 .main-content {
@@ -54,12 +24,7 @@ main {
   display: block;
   justify-content: center;
   align-items: center;
-}
 
-.main-image {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
 }
 
 #message {
@@ -67,8 +32,6 @@ main {
   font-weight: bold;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .button-container {
   display: flex;
@@ -78,13 +41,16 @@ main {
 }
 
 .image-container {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .animalImageButton {
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  width: 90px;
+  height: 90px;
+
   border: none;
   background-color: transparent;
   background-size: cover;
@@ -97,8 +63,8 @@ main {
   content: "div";
   background-image: url("../assets//images/nature.png");
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin: 10px;
   border: none;
   background-color: white;
@@ -147,7 +113,9 @@ main {
   align-items: center;
   margin: 10px;
 }
-
+.button-container-2 button {
+width: fit-content;
+}
 #returnButton {
   width: 150px;
   height: 40px;
@@ -160,3 +128,59 @@ main {
   transition: border 0.3s ease, transform 0.3s ease;
 }
 
+.container-levels{
+  text-align: center;
+}
+
+.main-image{
+  width: 200px;
+}
+
+
+
+
+footer{
+  display: block;
+
+}
+
+
+@media screen and (min-width: 560px) {
+
+  #root{
+   
+  display: block;
+ 
+ 
+  }
+  .main-image{
+    width: 100%;
+  }
+  
+  
+footer{
+  display: block;
+  position: absolute;
+}
+.main-container {
+  display: flex;
+  height: calc(100% - 80px);
+justify-content: center;
+margin: auto;
+}
+.main-container {
+
+ overflow: auto;
+}
+.button-container-2 {
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.button-container-2 button {
+width: fit-content;
+}
+  
+}

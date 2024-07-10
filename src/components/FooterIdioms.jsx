@@ -13,10 +13,10 @@ function FooterIdioms() {
     <footer>
         <div className="footer-content">
             <ul className="horizontal-languages">
-                <li><img src={flag_english} alt="English Flag"/>INGLÉS</li>
-                <li><img src={flag_french} alt="French Flag"/>FRANCÉS</li>
-                <li><img src={flag_italian} alt="Italian Flag"/>ITALIANO</li>
-                <li><img src={flag_portuguese} alt="Portuguese Flag"/>PORTUGUÉS</li>
+                <li><img src={flag_english} alt="English Flag"/> <span>INGLÉS</span>   </li>
+                <li><img src={flag_french} alt="French Flag"/> <span>FRANCÉS</span> </li>
+                <li><img src={flag_italian} alt="Italian Flag"/> <span>ITALIANO</span> </li>
+                <li><img src={flag_portuguese} alt="Portuguese Flag"/> <span>PORTUGUÉS</span> </li>
             </ul>
         </div>
         

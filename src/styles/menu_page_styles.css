@@ -7,28 +7,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-header {
-  background-color: #4CAF50;
-  height: 80px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0 20px;
-}
-
-.header-content img {
-  height: 50px;
-  width: 50px;
-  margin-right: 10px;
+#root{
+  display: block;
 }
 
 main {
@@ -36,6 +16,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  height: 100%;
 }
 
 .main-container {
@@ -56,11 +37,6 @@ main {
   align-items: center;
 }
 
-.main-image {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-}
 
 h1 {
   font-size: 28px;
@@ -71,10 +47,13 @@ h1 {
 .buttons {
   margin-top: 20px;
   margin-bottom: 20px;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   margin: auto;
+ 
 }
 
 button  {
@@ -108,7 +87,9 @@ button:hover {
 #mainMessage {
   margin: 10px;
 }
-
+#mainMessage h2{
+  margin-bottom: 20px;
+}
 .footer-content-made-by {
   background-color: #ddd;
   height: 80px;
@@ -119,4 +100,7 @@ button:hover {
   bottom: 0;
   width: 100%;
   padding: 0 20px;
+}
+footer{
+  bottom: 0;
 }
